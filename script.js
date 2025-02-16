@@ -20,6 +20,7 @@ function nextBird() {
 lastBirdIndex = -1;
 currentBirdIndex = -1;
 currentBird = null;
+dutchName = null;
 
 function getRandomIndex() {
     var index = Math.floor(Math.random() * birds.length);
@@ -48,8 +49,14 @@ function showBird() {
     for (var i = 0; i < show.length; i++) {
         showElement(show[i]);
     }
-    var name = Math.random() < 0.5 ? currentBird.dutch_name : currentBird.latin_name;
-    document.getElementById('bird_name').innerHTML = name;
+    dutchName = Math.random() < 0.5
+    if (dutchName) {
+        document.getElementById('bird_name').innerHTML = currentBird.dutch_name;
+        document.getElementById('alias').innerHTML = currentBird.latin_name;
+    } else {
+        document.getElementById('bird_name').innerHTML = currentBird.latin_name;
+        document.getElementById('alias').innerHTML = currentBird.dutch_name;
+    }
     if (currentBird.real) {
         document.getElementById('bird_image').src = currentBird.picture;
         showElement('bird_image');

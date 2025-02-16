@@ -1,0 +1,3 @@
+// get image url dynamically using wiki API
+// get more real birds
+// generate fake birds

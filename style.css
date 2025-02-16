@@ -26,6 +26,14 @@ button {
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+    max-height: 20em;
+    width: auto;
+}
+
+#answer_right {
+    color: green;
+}
+
+#answer_wrong {
+    color: red;
 }
