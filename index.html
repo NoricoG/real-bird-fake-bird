@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="birds.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Real Bird Fake Bird</title>
+</head>
+<body>
+    <div id="answer_right">
+        <p>Correct!</p>
+    </div>
+    <div id="answer_wrong">
+        <p>Wrong!</p>
+    </div>
+    <div id="answer_none">
+        <p>Is this a real bird?</p>
+    </div>
+        <b>
+            <p id="bird_name"></p>
+        </b>
+    <div id="guess">
+        <button id="guess_fake">Fake</button>
+        <button id="guess_real">Real</button>
+    </div>
+    <div id="answer_real">
+        <p>is a real bird</p>
+        <img id="bird_image" src="" alt="bird image">
+        <a id="bird_url" href=""><p>More info</p></a>
+    </div>
+    <div id="answer_fake"">
+        <p>is a fake bird</p>
+    </div>
+    <div id="next">
+        <button id="next_button" onclick="nextBird()">Next bird</button>
+    </div>
+</body>
+</html>
