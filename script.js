@@ -17,39 +17,41 @@ function nextBird() {
     showBird();
 }
 
-lastBirdIndex = -1;
+var recentIndices = [];
+var maxRecentIndices = 4;
 currentBirdIndex = -1;
 currentBird = null;
 dutchName = null;
 
 function getRandomIndex() {
-    var index = Math.floor(Math.random() * birds.length);
-    if (index == lastBirdIndex) {
-        return getRandomIndex();
-    }
+    let index;
+    do {
+        index = Math.floor(Math.random() * birds.length);
+    } while (recentIndices.includes(index));
     return index;
 }
 
 function setRandomBird() {
     var index = getRandomIndex();
-    lastBirdIndex = currentBirdIndex;
+    if (recentIndices.length >= maxRecentIndices) {
+        recentIndices.shift();
+    }
+    recentIndices.push(index);
     currentBirdIndex = index;
-    currentBird = birds[index];
-    console.log(index)
-    console.log(currentBird)
+    currentBird = birds[currentBirdIndex];
 }
 
 function showBird() {
     console.log("showing bird");
-    hide = ["answer_right", "answer_wrong", "answer_real", "answer_fake", "next"];
-    show = ["answer_none", "guess_real", "guess_fake"];
+    var hide = ["answer_right", "answer_wrong", "answer_real", "answer_fake", "next"];
+    var show = ["answer_none", "guess_real", "guess_fake"];
     for (var i = 0; i < hide.length; i++) {
         hideElement(hide[i]);
     }
     for (var i = 0; i < show.length; i++) {
         showElement(show[i]);
     }
-    dutchName = Math.random() < 0.5
+    dutchName = Math.random() < 0.5;
     if (dutchName) {
         document.getElementById('bird_name').innerHTML = currentBird.dutch_name;
         document.getElementById('alias').innerHTML = currentBird.latin_name;
